@@ -9,6 +9,7 @@ import androidx.core.content.ContextCompat
 import android.content.Context
 import android.location.Location
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.Toast
 import com.bumptech.glide.Glide
 import com.example.weatherapp.models.WeatherDataClasses
@@ -189,6 +190,78 @@ class MainActivity : AppCompatActivity() {
                 showToast("Network error: ${t.message}")
             }
         })
+
+        // Fetch 3-day forecast data
+        val forecastCall = service.getWeatherForecast(apiKey, query, 4) // Request a 4-day forecast
+        forecastCall.enqueue(object : Callback<WeatherDataClasses.ForecastResponse> {
+            override fun onResponse(call: Call<WeatherDataClasses.ForecastResponse>, response: Response<WeatherDataClasses.ForecastResponse>) {
+                if (response.isSuccessful) {
+                    val forecastResponse = response.body()
+                    if (forecastResponse != null && forecastResponse.forecast.forecastday.isNotEmpty()) {
+                        // Get the forecast data for the next 3 days
+                        val forecastData = forecastResponse.forecast.forecastday.take(4)
+
+                        // Update the UI with the 3-day forecast data
+                        updateForecastUI(forecastData)
+                    }
+                } else {
+                    // Handle forecast API error
+                    showToast("Error: ${response.message()}")
+                }
+            }
+
+            override fun onFailure(call: Call<WeatherDataClasses.ForecastResponse>, t: Throwable) {
+                // Handle network error
+                showToast("Forecast API Network error: ${t.message}")
+            }
+        })
+    }
+    private fun updateForecastUI(forecastData: List<WeatherDataClasses.ForecastDay>) {
+        // Assuming you have UI elements to display the forecast for each day,
+        // you can update them here based on the data in forecastData.
+
+        // For example, if you have TextViews for each day's date, temperature, and condition:
+        val day1DateTextView = findViewById<TextView>(R.id.Section1Day)
+        val day1TempTextView = findViewById<TextView>(R.id.Section1Temp)
+        val day1ConditionImageView = findViewById<ImageView>(R.id.Section1Img)
+
+        val day2DateTextView = findViewById<TextView>(R.id.Section2Day)
+        val day2TempTextView = findViewById<TextView>(R.id.Section2Temp)
+        val day2ConditionImageView = findViewById<ImageView>(R.id.Section2Img)
+
+        val day3DateTextView = findViewById<TextView>(R.id.Section3Day)
+        val day3TempTextView = findViewById<TextView>(R.id.Section3Temp)
+        val day3ConditionImageView = findViewById<ImageView>(R.id.Section3Img)
+
+        // Assuming forecastData is a list of ForecastDay objects, you can access data like this:
+        if (forecastData.size >= 3) {
+            // Day 1 forecast
+            val day1Date = forecastData[1].date
+            val day1Month = day1Date.substring(5, 7)  // Extract the month (assuming date is in "yyyy-MM-dd" format)
+            val day1Day = day1Date.substring(8, 10)  // Extract the day
+            day1DateTextView.text = "$day1Month/$day1Day"
+            day1TempTextView.text = "${forecastData[1].day.avgtemp_c}°C"
+            // Set the condition image using Glide or another image loading library
+            Glide.with(this).load("https:" + forecastData[1].day.condition.icon).into(day1ConditionImageView)
+
+            // Day 2 forecast
+            val day2Date = forecastData[2].date
+            val day2Month = day2Date.substring(5, 7)
+            val day2Day = day2Date.substring(8, 10)
+            day2DateTextView.text = "$day2Month/$day2Day"
+            day2TempTextView.text = "${forecastData[2].day.avgtemp_c}°C"
+            // Set the condition image for day 2
+            Glide.with(this).load("https:" + forecastData[2].day.condition.icon).into(day2ConditionImageView)
+
+            // Day 3 forecast
+            val day3Date = forecastData[3].date
+            val day3Month = day3Date.substring(5, 7)
+            val day3Day = day3Date.substring(8, 10)
+            day3DateTextView.text = "$day3Month/$day3Day"
+            day3TempTextView.text = "${forecastData[3].day.avgtemp_c}°C"
+            // Set the condition image for day 3
+            Glide.with(this).load("https:" + forecastData[3].day.condition.icon).into(day3ConditionImageView)
+        }
     }
 
 }

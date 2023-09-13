@@ -10,5 +10,14 @@ interface WeatherService {
     fun getCurrentWeather(
         @Query("key") apiKey: String,
         @Query("q") query: String
-    ): Call<WeatherDataClasses.WeatherResponse> // WeatherResponse is a data class to hold the API response
+    ): Call<WeatherDataClasses.WeatherResponse>
+
+    @GET("/v1/forecast.json")
+    fun getWeatherForecast(
+        @Query("key") apiKey: String,
+        @Query("q") query: String,
+        @Query("days") days: Int
+    ): Call<WeatherDataClasses.ForecastResponse>
 }
+
+

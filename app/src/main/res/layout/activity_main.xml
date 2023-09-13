@@ -1,28 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
+    android:background="@drawable/day"
     android:orientation="vertical"
-    android:gravity="center"> <!-- Center elements both horizontally and vertically -->
+    android:gravity="center">
 
     <TextView
         android:id="@+id/txtCountry"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         style="@style/OutlinedText"
-        android:layout_marginBottom="80dp"
-        />
+        android:layout_marginBottom="80dp" />
 
     <TextView
         android:id="@+id/txtTemperature"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         style="@style/OutlinedText"
-        android:textSize="54sp"
-        />
+        android:textSize="54sp" />
 
     <ImageView
         android:id="@+id/image"
@@ -37,7 +36,107 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         style="@style/OutlinedText"
-        android:layout_marginBottom="100dp"
-        />
+        android:layout_marginBottom="100dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <LinearLayout
+            android:id="@+id/Section1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/Section1Day"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                style="@style/OutlinedText"/>
+
+            <ImageView
+                android:id="@+id/Section1Img"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_launcher_foreground"
+                tools:src="@drawable/ic_launcher_foreground"
+                tools:srcCompat="@tools:sample/avatars"
+                android:layout_gravity="center" />
+
+            <TextView
+                android:id="@+id/Section1Temp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                style="@style/OutlinedText"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/Section2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/Section2Day"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                style="@style/OutlinedText"/>
+
+            <ImageView
+                android:id="@+id/Section2Img"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_launcher_foreground"
+                tools:src="@drawable/ic_launcher_foreground"
+                tools:srcCompat="@tools:sample/avatars"
+                android:layout_gravity="center" />
+
+            <TextView
+                android:id="@+id/Section2Temp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                style="@style/OutlinedText"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/Section3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/Section3Day"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                style="@style/OutlinedText"/>
+
+            <ImageView
+                android:id="@+id/Section3Img"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_launcher_foreground"
+                tools:src="@drawable/ic_launcher_foreground"
+                tools:srcCompat="@tools:sample/avatars"
+                android:layout_gravity="center" />
+
+            <TextView
+                android:id="@+id/Section3Temp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                style="@style/OutlinedText"/>
+        </LinearLayout>
+
+    </LinearLayout>
 
 </LinearLayout>
