@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Theme.WeatherApp" parent="android:Theme.Material.Light.NoActionBar" />
+    <style name="OutlinedText">
+        <item name="android:textColor">#FFFFFF</item> <!-- Text color (white) -->
+        <item name="android:textSize">24sp</item> <!-- Text size -->
+        <item name="android:shadowColor">#000000</item> <!-- Outline color (black) -->
+        <item name="android:shadowDx">-2</item> <!-- Horizontal shadow offset -->
+        <item name="android:shadowDy">-2</item> <!-- Vertical shadow offset -->
+        <item name="android:shadowRadius">4</item> <!-- Shadow radius -->
+    </style>
+
+</resources>
