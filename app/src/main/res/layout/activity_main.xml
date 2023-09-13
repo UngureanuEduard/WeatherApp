@@ -12,17 +12,17 @@
         android:id="@+id/txtCountry"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="#FFFFFF"
-        android:textSize="24sp"
-
+        style="@style/OutlinedText"
+        android:layout_marginBottom="80dp"
         />
 
     <TextView
         android:id="@+id/txtTemperature"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="#FFFFFF"
-        android:textSize="48sp" />
+        style="@style/OutlinedText"
+        android:textSize="54sp"
+        />
 
     <ImageView
         android:id="@+id/image"
@@ -36,7 +36,8 @@
         android:id="@+id/txtCondition"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="#FFFFFF"
-        android:textSize="24sp" />
+        style="@style/OutlinedText"
+        android:layout_marginBottom="100dp"
+        />
 
 </LinearLayout>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="OutlinedText">
+        <item name="android:textColor">#FFFFFF</item> <!-- Text color -->
+        <item name="android:textSize">30sp</item> <!-- Text size -->
+        <item name="android:shadowColor">#000000</item> <!-- Outline color (black) -->
+        <item name="android:shadowDx">-1</item> <!-- Outline shadow horizontal offset -->
+        <item name="android:shadowDy">-1</item> <!-- Outline shadow vertical offset -->
+        <item name="android:shadowRadius">2</item> <!-- Outline shadow radius -->
+    </style>
+</resources>

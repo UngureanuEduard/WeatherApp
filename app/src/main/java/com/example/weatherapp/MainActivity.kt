@@ -8,7 +8,9 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import android.content.Context
 import android.location.Location
+import android.widget.ImageView
 import android.widget.Toast
+import com.bumptech.glide.Glide
 import com.example.weatherapp.models.WeatherDataClasses
 import com.example.weatherapp.network.WeatherService
 import com.google.android.gms.location.FusedLocationProviderClient
@@ -20,7 +22,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 class MainActivity : AppCompatActivity() {
-    private val MY_PERMISSIONS_REQUEST_LOCATION = 1  // Define the request code
+    private val MY_PERMISSIONS_REQUEST_LOCATION = 1
     private lateinit var locationProvider: LocationProvider
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -159,15 +161,22 @@ class MainActivity : AppCompatActivity() {
                         val location = weatherResponse.location
                         val country = location.country
                         val county = location.region
+                        val iconUrl = "https:" + currentWeather.condition.icon  // Build the full URL for the icon
 
                         val temperatureTextView = findViewById<TextView>(R.id.txtTemperature)
                         val conditionTextView = findViewById<TextView>(R.id.txtCondition)
                         val countryTextView = findViewById<TextView>(R.id.txtCountry)
+                        val weatherIconImageView = findViewById<ImageView>(R.id.image)
 
+                        // Update the TextViews
                         temperatureTextView.text = "$temperature°C"
-                        conditionTextView.text = "$condition"
-                        // Concatenate country and county with a comma
+                        conditionTextView.text = condition
                         countryTextView.text = "$country, $county"
+
+                        // Load the weather icon using Glide and set it to the existing ImageView
+                        Glide.with(this@MainActivity)
+                            .load(iconUrl)
+                            .into(weatherIconImageView)
                     }
                 } else {
                     // Handle API error
