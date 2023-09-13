@@ -1,3 +1,8 @@
 <resources>
-    <string name="app_name"></string>
+    <string name="app_name">Weather App</string>
+    <string name="temperature_placeholder">%1\$s°C</string>
+    <string name="location_format">%1$s, %2$s</string>
+    <string name="date_format">%1$s/%2$s</string>
+    <string name="temperature_format">%1$s°C</string>
+    <string name="date_placeholder">%1$s/%2$s</string>
 </resources>

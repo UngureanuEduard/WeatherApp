@@ -6,7 +6,7 @@ import retrofit2.http.GET
 import retrofit2.http.Query
 
 interface WeatherService {
-    @GET("/v1/current.json") // Use the appropriate API endpoint
+    @GET("/v1/current.json")
     fun getCurrentWeather(
         @Query("key") apiKey: String,
         @Query("q") query: String
@@ -14,6 +14,13 @@ interface WeatherService {
 
     @GET("/v1/forecast.json")
     fun getWeatherForecast(
+        @Query("key") apiKey: String,
+        @Query("q") query: String,
+        @Query("days") days: Int
+    ): Call<WeatherDataClasses.ForecastResponse>
+
+    @GET("/v1/forecast.json")
+    fun getCurrentTime(
         @Query("key") apiKey: String,
         @Query("q") query: String,
         @Query("days") days: Int

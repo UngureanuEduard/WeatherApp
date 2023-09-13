@@ -17,7 +17,8 @@ class WeatherDataClasses {
 
     data class CurrentWeather(
         val temp_c: Double,
-        val condition: Condition
+        val condition: Condition,
+        val is_day: Double
     )
 
     data class Condition(
