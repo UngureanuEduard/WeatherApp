@@ -18,13 +18,6 @@ interface WeatherService {
         @Query("q") query: String,
         @Query("days") days: Int
     ): Call<WeatherDataClasses.ForecastResponse>
-
-    @GET("/v1/forecast.json")
-    fun getCurrentTime(
-        @Query("key") apiKey: String,
-        @Query("q") query: String,
-        @Query("days") days: Int
-    ): Call<WeatherDataClasses.ForecastResponse>
 }
 
 

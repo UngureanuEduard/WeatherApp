@@ -9,6 +9,7 @@ import androidx.core.content.ContextCompat
 import android.content.Context
 import android.location.Location
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.Toast
 import com.bumptech.glide.Glide
 import com.example.weatherapp.models.WeatherDataClasses
@@ -20,6 +21,7 @@ import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+
 
 class MainActivity : AppCompatActivity() {
     private val MY_PERMISSIONS_REQUEST_LOCATION = 1
@@ -98,10 +100,8 @@ class MainActivity : AppCompatActivity() {
         locationProvider.getLastLocation { location ->
             if (location == null) {
                 // Handle location retrieval failure
-                // Example: Show an error message to the user
                 showToast("Unable to retrieve location.")
             }
-            // No need to update txtLocation with latitude and longitude
         }
     }
 
@@ -154,6 +154,17 @@ class MainActivity : AppCompatActivity() {
                 if (response.isSuccessful) {
                     val weatherResponse = response.body()
                     if (weatherResponse != null) {
+                        val isDay = weatherResponse.current.is_day
+
+                        // Update the background based on is_day value
+                        if (isDay == 1.0) {
+                            // It's daytime, set the "day" background
+                            findViewById<LinearLayout>(R.id.mainLayout).setBackgroundResource(R.drawable.day)
+                        } else {
+                            // It's nighttime, set the "night" background
+                            findViewById<LinearLayout>(R.id.mainLayout).setBackgroundResource(R.drawable.night)
+                        }
+
                         val currentWeather = weatherResponse.current
                         val temperature = currentWeather.temp_c
                         val condition = currentWeather.condition.text
@@ -238,7 +249,7 @@ class MainActivity : AppCompatActivity() {
         if (forecastData.size >= 3) {
             // Day 1 forecast
             val day1Date = forecastData[1].date
-            val day1Month = day1Date.substring(5, 7)  // Extract the month (assuming date is in "yyyy-MM-dd" format)
+            val day1Month = day1Date.substring(5, 7)  // Extract the month
             val day1Day = day1Date.substring(8, 10)  // Extract the day
 
             // Get the resource string with placeholders

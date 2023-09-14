@@ -5,4 +5,10 @@
     <string name="date_format">%1$s/%2$s</string>
     <string name="temperature_format">%1$s°C</string>
     <string name="date_placeholder">%1$s/%2$s</string>
+    <string name="current_image_description">Wether Condition Icon</string>
+    <string name="section1_image_description">Condition Icon for next day</string>
+    <string name="section2_image_description">Condition Icon for 2nd next day</string>
+    <string name="section3_image_description">Condition Icon for 3rd next day</string>
+
+
 </resources>

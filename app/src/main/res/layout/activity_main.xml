@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mainLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/day"
@@ -27,10 +27,9 @@
         android:id="@+id/image"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:contentDescription="@string/current_image_description"
         android:src="@drawable/ic_launcher_foreground"
-        tools:src="@drawable/ic_launcher_foreground"
-        tools:srcCompat="@tools:sample/avatars" />
-
+        tools:src="@drawable/ic_launcher_foreground" />
     <TextView
         android:id="@+id/txtCondition"
         android:layout_width="wrap_content"
@@ -62,10 +61,10 @@
                 android:id="@+id/Section1Img"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:contentDescription="@string/section1_image_description"
                 android:src="@drawable/ic_launcher_foreground"
-                tools:src="@drawable/ic_launcher_foreground"
-                tools:srcCompat="@tools:sample/avatars"
-                android:layout_gravity="center" />
+                tools:src="@drawable/ic_launcher_foreground" />
 
             <TextView
                 android:id="@+id/Section1Temp"
@@ -93,10 +92,10 @@
                 android:id="@+id/Section2Img"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:contentDescription="@string/section2_image_description"
                 android:src="@drawable/ic_launcher_foreground"
-                tools:src="@drawable/ic_launcher_foreground"
-                tools:srcCompat="@tools:sample/avatars"
-                android:layout_gravity="center" />
+                tools:src="@drawable/ic_launcher_foreground" />
 
             <TextView
                 android:id="@+id/Section2Temp"
@@ -124,10 +123,10 @@
                 android:id="@+id/Section3Img"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:contentDescription="@string/section3_image_description"
                 android:src="@drawable/ic_launcher_foreground"
-                tools:src="@drawable/ic_launcher_foreground"
-                tools:srcCompat="@tools:sample/avatars"
-                android:layout_gravity="center" />
+                tools:src="@drawable/ic_launcher_foreground" />
 
             <TextView
                 android:id="@+id/Section3Temp"
