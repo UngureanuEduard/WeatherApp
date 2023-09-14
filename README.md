@@ -1,7 +1,5 @@
 # Weather App
-
-![Screenshot_20230914_111946](https://github.com/UngureanuEduard/WeatherApp/assets/130817880/ebf0b949-5195-405e-a8fd-b53bbadd6ede)
-
+![img2](https://github.com/UngureanuEduard/WeatherApp/assets/130817880/61ee1202-0a7b-4301-9af8-d7e6e1f27ff1)
 ## Overview
 
 The Weather App is a simple Android application that provides real-time weather information based on the user's current location. It uses the Weather API to fetch weather data and display it in a user-friendly interface. This README provides an overview of the app's features, how to set it up, and how to use it.
